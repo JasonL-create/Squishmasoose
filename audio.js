@@ -1,6 +1,6 @@
 // Audio preferences are private to this account on this device.
 (()=>{
-const tracks={Classic:'music-classic.mp3',Christmas:'music-christmas.mp3',Halloween:'music-halloween.mp3'};
+const tracks={Classic:'music-classic.mp3',Christmas:'music-christmas.mp3',Halloween:'music-halloween.mp3',Winter:'music-winter.mp3'};
 const music=new Audio();music.loop=true;music.preload='none';let uid=null,track='',ctx=null,last=0,unlocked=false;
 let prefs={music:false,effects:false,volume:0.28,fx:0.32,muted:false};
 function load(){if(uid===liveUid)return;music.pause();unlocked=false;uid=liveUid;prefs={music:false,effects:false,volume:.28,fx:.32,muted:false};if(uid)try{Object.assign(prefs,JSON.parse(localStorage.getItem('sqAudio:'+uid)||'{}'))}catch{} }

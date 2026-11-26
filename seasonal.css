@@ -89,3 +89,13 @@ html[data-sq-theme=Thanksgiving] .sqHarvest{display:block;}
 .sqHarvest .sqForestToy{opacity:.79;filter:drop-shadow(0 3px 3px #98614033)}
 .sqHarvest .sqPieBite{display:none;}
 html[data-sq-theme=Thanksgiving] header:after{height:6px;bottom:-5px;background:repeating-linear-gradient(125deg,#d58e46 0 10px,#fff1da 10px 20px,#bb7060 20px 30px);}
+
+/* V28.11 Summer beach */
+html[data-sq-theme=Summer]:not([data-sq-theme=Classic]) :is(.app,.chat-stage,#squishHome){background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20650%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22sky%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23a9e5ef%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23fff3ce%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22400%22%20height%3D%22650%22%20fill%3D%22url%28%23sky%29%22%2F%3E%3Cg%20stroke%3D%22%23fff%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M-20%20325Q75%20303%20170%20330T420%20320V650H-20Z%22%20fill%3D%22%2380cedb%22%2F%3E%3Cpath%20d%3D%22M-20%20385Q85%20355%20190%20385T420%20370V650H-20Z%22%20fill%3D%22%23a0e4e3%22%2F%3E%3Cpath%20d%3D%22M-20%20455Q90%20403%20220%20461T420%20447V650H-20Z%22%20fill%3D%22%23f5dbb4%22%2F%3E%3Cpath%20d%3D%22M-20%20565Q90%20520%20220%20565T420%20550V650H-20Z%22%20fill%3D%22%23f2ce9e%22%2F%3E%3Cpath%20d%3D%22M30%20563q15%20-25%2030%200q-15%2013%20-30%200M330%20602q15%20-25%2030%200q-15%2013%20-30%200%22%20fill%3D%22%23f6a6b9%22%2F%3E%3Cpath%20d%3D%22M285%20540l8%2012%2015%200-10%2010%204%2015-14-8-14%208%204-15-10-10%2015%200Z%22%20fill%3D%22%23efad82%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center bottom / cover no-repeat,#b5e7ed!important;}
+html[data-sq-theme=Summer] header:after{height:6px;bottom:-5px;background:repeating-linear-gradient(125deg,#80dde8 0 10px,#ffe68a 10px 20px,#f6a6b9 20px 30px);}
+.sqBeach{display:none;position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+html[data-sq-theme=Summer] .sqBeach{display:block;}
+.sqBeach .sqForestToy{opacity:.78;filter:drop-shadow(0 3px 3px #537d8033);}
+.sqBeach .sqWave{position:absolute;top:64%;left:-12%;width:124%;height:22px;background:radial-gradient(ellipse at center,#ffffffa0 0 25%,transparent 70%);animation:sqBeachWave 7s ease-in-out infinite alternate;}
+@keyframes sqBeachWave{to{transform:translate(5%,8px);opacity:.3}}
+@media(prefers-reduced-motion:reduce){.sqBeach .sqWave{animation:none}}
