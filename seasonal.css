@@ -1,4 +1,4 @@
-html[data-sq-theme] .dream-rain{display:none!important}.sqIcon{display:grid;place-items:center;width:32px;height:32px;font-size:28px;line-height:1;pointer-events:none}.sqIcon svg{width:100%;height:100%}.sqFuzz{border-radius:50%;background:radial-gradient(circle at 31% 25%,#ffd5ec,#f78ac1 45%,#c54b8a 90%);box-shadow:0 0 0 2px #fff,0 0 0 4px #ef9bc6,inset 0 -3px 5px #b84c86;background-image:repeating-conic-gradient(from 5deg,#ffabd5 0deg 8deg,#ea76ae 8deg 14deg);border:3px dotted #ffc8e6}.sqDrop .sqIcon{filter:drop-shadow(0 1px 1px #fff)}.sqToy .sqIcon{margin:5px}.sqDrop{z-index:3}.sqDrop:disabled{pointer-events:none}
+html.sqNoFalling .dream-rain,html.sqNoFalling .sqDrop{display:none!important}.sqIcon{display:grid;place-items:center;width:32px;height:32px;font-size:28px;line-height:1;pointer-events:none}.sqIcon svg{width:100%;height:100%}.sqFuzz{border-radius:50%;background:radial-gradient(circle at 31% 25%,#ffd5ec,#f78ac1 45%,#c54b8a 90%);box-shadow:0 0 0 2px #fff,0 0 0 4px #ef9bc6,inset 0 -3px 5px #b84c86;background-image:repeating-conic-gradient(from 5deg,#ffabd5 0deg 8deg,#ea76ae 8deg 14deg);border:3px dotted #ffc8e6}.sqDrop .sqIcon{filter:drop-shadow(0 1px 1px #fff)}.sqToy .sqIcon{margin:5px}.sqDrop{z-index:3}.sqDrop:disabled{pointer-events:none}
 html[data-sq-theme]:not([data-sq-theme=Classic]){--sqInk:#334f46;--sqButton:#d6edda;--sqPanel:#f4faf5;--sqScene:none;--sqTrim:none}
 html[data-sq-theme]:not([data-sq-theme=Classic]) .app,html[data-sq-theme]:not([data-sq-theme=Classic]) .chat-stage,html[data-sq-theme]:not([data-sq-theme=Classic]) #squishHome{background:var(--sqScene) center bottom / 100% auto no-repeat,linear-gradient(160deg,var(--sqSky),#fff9 60%,var(--sqGround))!important}
 html[data-sq-theme]:not([data-sq-theme=Classic]) header{background:linear-gradient(145deg,var(--sqAccent),var(--sqInk))!important;box-shadow:0 4px 0 var(--sqButton)}
@@ -19,3 +19,5 @@ html[data-sq-theme=Autumn]{--sqInk:#754329;--sqButton:#ffe1ae;--sqPanel:#fff3e3;
 html[data-sq-theme=Valentine]{--sqInk:#873e68;--sqButton:#ffd0e3;--sqPanel:#fff0f6;}
 html[data-sq-theme=Spring]{--sqInk:#446d47;--sqButton:#dcf4ce;--sqPanel:#f2fbe9;}
 html[data-sq-theme=Summer]{--sqInk:#376987;--sqButton:#ffebad;--sqPanel:#fff8e4;}
+
+html.sqReduced .dream-rain{opacity:.45;top:var(--still);}
