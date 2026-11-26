@@ -81,3 +81,11 @@ html[data-sq-theme=Halloween] .sqForest{display:block;}
 .sqForestToy{position:absolute;width:var(--size);left:var(--left);top:var(--top);opacity:.84;filter:drop-shadow(0 3px 3px #271a4255);transform-origin:center;}
 .sqForestToy svg{display:block;width:100%;overflow:visible;}.sqForestToy .awake,.sqForestToy .altface{display:none}.sqForestToy.wake .awake,.sqForestToy.changed .altface{display:inline}.sqForestToy.wake .sleep,.sqForestToy.changed .normalface{display:none}
 html[data-sq-theme=Halloween] .dream-cloud{opacity:.32;filter:grayscale(.25) brightness(.85)}
+
+/* V28.9 harvest world */
+html[data-sq-theme=Thanksgiving]:not([data-sq-theme=Classic]) :is(.app,.chat-stage,#squishHome){background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20650%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22sky%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23fff4df%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f1d7a3%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22400%22%20height%3D%22650%22%20fill%3D%22url%28%23sky%29%22%2F%3E%3Ccircle%20cx%3D%22290%22%20cy%3D%22195%22%20r%3D%2260%22%20fill%3D%22%23ffe4a7%22%20stroke%3D%22%23fff6e4%22%20stroke-width%3D%225%22%2F%3E%3Cg%20stroke%3D%22%23fff4df%22%20stroke-width%3D%225%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M-20%20365Q80%20235%20185%20350T420%20325V670H-20Z%22%20fill%3D%22%23e8c483%22%2F%3E%3Cpath%20d%3D%22M-20%20455Q90%20315%20230%20445T420%20405V670H-20Z%22%20fill%3D%22%23dbad69%22%2F%3E%3Cpath%20d%3D%22M-20%20550Q100%20420%20230%20540T420%20505V670H-20Z%22%20fill%3D%22%23c69260%22%2F%3E%3Cpath%20d%3D%22M-20%20620Q120%20535%20280%20610T420%20575V670H-20Z%22%20fill%3D%22%23b98153%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center bottom / cover no-repeat,#fff1da!important;}
+html[data-sq-theme=Thanksgiving] .sqHarvest{display:block;}
+.sqHarvest{display:none;position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.sqHarvest .sqForestToy{opacity:.79;filter:drop-shadow(0 3px 3px #98614033)}
+.sqHarvest .sqPieBite{display:none;}
+html[data-sq-theme=Thanksgiving] header:after{height:6px;bottom:-5px;background:repeating-linear-gradient(125deg,#d58e46 0 10px,#fff1da 10px 20px,#bb7060 20px 30px);}
