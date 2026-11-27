@@ -89,4 +89,4 @@ $('settings').addEventListener('click',()=>{if(!$('testSettings').hidden){docume
 let cloudTouch=null;cloudMenu.addEventListener('touchstart',e=>{cloudTouch=e.touches[0].clientY},{passive:true});cloudMenu.addEventListener('touchend',e=>{if(cloudTouch!==null&&e.changedTouches[0].clientY-cloudTouch>40)dismissOptions();cloudTouch=null},{passive:true});
 // Existing handles captured the original dismissal callback; close the cloud menu as well.
 document.querySelectorAll('.dismiss-handle').forEach(b=>b.addEventListener('click',()=>dismissOptions()));
-</script><script src="live.js?v=3020"></script><script src="collection.js?v=29.2"></script><script src="audio.js?v=3022"></script><script src="secret.js?v=3022"></script><script src="notes.js?v=3021"></script></body></html>
+</script><script src="live.js?v=3030"></script><script src="collection.js?v=29.2"></script><script src="audio.js?v=3022"></script><script src="secret.js?v=3022"></script><script src="notes.js?v=3021"></script><script src="snaps.js?v=3030"></script></body></html>
