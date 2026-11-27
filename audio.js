@@ -8,6 +8,23 @@ function save(){try{localStorage.setItem('sqAudio:'+uid,JSON.stringify(prefs))}c
 function sync(){load();updateSpeaker();const active=!!profile&&!document.hidden;const next=tracks[sqThemeKey()]||tracks.Classic;if(!active||prefs.muted||!prefs.music){music.pause();return}if(track!==next){track=next;music.src=next;}music.volume=prefs.volume;if(unlocked&&music.paused)music.play().catch(()=>{});}
 function unlock(){load();if(!profile)return;unlocked=true;if(prefs.effects&&!prefs.muted)try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume().catch(()=>{})}catch{}sync()}
 window.sqSound=function(kind='pop'){load();if(!profile||prefs.muted||!prefs.effects||document.hidden||!ctx||ctx.state!=='running'||performance.now()-last<65)return;last=performance.now();try{const t=ctx.currentTime;const notes=kind==='gobble'?[190,260,190,240]:kind==='sparkle'?[660,880,1100]:kind==='rain'?[320,470,390]:kind==='squish'?[220]:[520];notes.forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain(),s=t+i*.065,d=kind==='squish'?.19:.13;o.type='sine';o.frequency.setValueAtTime(f,s);o.frequency.exponentialRampToValueAtTime(kind==='sparkle'?f*1.08:f*.42,s+d);g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(Math.max(.0002,prefs.fx*.24),s+.012);g.gain.exponentialRampToValueAtTime(.0001,s+d);o.connect(g);g.connect(ctx.destination);o.start(s);o.stop(s+d+.01)})}catch{}};
+// Secret taps bypass the shared cooldown and resume audio within the trusted click.
+window.sqSecretSound=function(count){
+ load();if(!profile||prefs.muted||!prefs.effects||document.hidden||prefs.fx<=0)return;
+ try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();const play=()=>{
+ if(ctx.state!=='running'||prefs.muted||!prefs.effects||document.hidden)return;
+ const t=ctx.currentTime;last=performance.now();
+ function tone(f,end,offset,duration,level,type='sine'){
+ const o=ctx.createOscillator(),g=ctx.createGain(),s=t+offset;o.type=type;
+ o.frequency.setValueAtTime(f,s);o.frequency.exponentialRampToValueAtTime(end,s+duration);
+ g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(Math.max(.0001,prefs.fx*level),s+.009);g.gain.exponentialRampToValueAtTime(.0001,s+duration);
+ o.connect(g);g.connect(ctx.destination);o.start(s);o.stop(s+duration+.01);
+ }
+ if(count<5){const f=300+count*75;tone(f,f*.38,0,.15,.36);tone(f*1.6,f*.65,.008,.075,.12,'triangle');}
+ else{tone(230,48,0,.30,.58,'triangle');tone(920,220,0,.10,.30);[660,880,1100,1320].forEach((f,i)=>tone(f,f*1.12,.075+i*.065,.22,.23));}
+ };if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
+ }catch{}
+};
 window.sqAudioSettings=function(){load();const d=sqDialog('Music & sounds');function toggle(key,label){const l=document.createElement('label'),i=document.createElement('input');i.type='checkbox';i.checked=prefs[key];l.append(document.createTextNode(label+' '),i);d.append(l);i.onchange=()=>{prefs[key]=i.checked;save();unlock();sync();if(key==='effects'&&i.checked)setTimeout(()=>sqSound('pop'),100)}}function volume(key,label){const l=document.createElement('label'),i=document.createElement('input');i.type='range';i.min=0;i.max=100;i.value=Math.round(prefs[key]*100);l.append(document.createTextNode(label+' '),i);d.append(l);i.oninput=()=>{prefs[key]=Number(i.value)/100;save();sync()}}toggle('music','Background music');volume('volume','Music volume');toggle('effects','Sound effects');volume('fx','Effects volume');sqText(d,'p','Audio preferences are saved on this device.');d.append(button('Done',()=>d.close()));};
 const audioRow=document.createElement('div');audioRow.className='sqAudioRow';sqTracker.before(audioRow);audioRow.append(sqTracker);
 const speaker=document.createElement('button');speaker.type='button';speaker.className='sqQuickMute';audioRow.append(speaker);
